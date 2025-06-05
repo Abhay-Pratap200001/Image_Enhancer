@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Home from "./component/Home";
 
-function App() {
+const App = () => {
   const [count, setCount] = useState(0);
 
   return (
@@ -18,8 +18,7 @@ function App() {
         <Home />
 
         <div className="text-sm text-gray-500 mt-6">
-          Upload your Image and let AI enhance to in seconds! Power By
-          @SheryansAI
+           Power By @SheryansAI
         </div>
       </div>
     </>

@@ -2,6 +2,7 @@ import React from "react";
 import ImagePreview from "./ImagePreview";
 import ImageUpload from "./ImageUpload";
 import { useState } from "react";
+import { enhancedImageAPI } from "../utils/enhancedimageApi";
 
 const Home = () => {
   const [uploadImage, setUploadImage] = useState(null);
@@ -9,10 +10,19 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
 
 
-  const UploadImageHandler = (file) =>{
+  const UploadImageHandler = async(file) =>{
     setUploadImage(URL.createObjectURL(file))
     setLoading(true)
+    try {
+      const enhancedURL = await enhancedImageAPI(file);
+      setEnhancedImage(enhancedURL);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      alert("Error while enhancing the image. Please solve error first")
+      
     }
+  };
 
   return (
     <>
@@ -27,3 +37,6 @@ const Home = () => {
 };
 
 export default Home;
+
+
+// Api calling feature has to do min 49.09 ses 
