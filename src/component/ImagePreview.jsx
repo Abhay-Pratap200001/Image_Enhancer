@@ -28,11 +28,15 @@ const ImagePreview = (props) => {
         </h2>
 
         {props.enhanced && !props.loading && (
-          <img src="" alt="" className="w-full h-full object-cover" />
+          <img
+            src={props.enhanced}
+            alt=""
+            className="w-full h-full object-cover"
+          />
         )}
 
         {props.loading ? (
-          <Loading/>
+          <Loading />
         ) : (
           <div className="flex items-center justify-center h-80 bg-gray-200">
             No Enhaced Selected
@@ -41,6 +45,6 @@ const ImagePreview = (props) => {
       </div>
     </div>
   );
-}
+};
 
 export default ImagePreview;
